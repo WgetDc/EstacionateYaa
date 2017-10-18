@@ -18,6 +18,10 @@ ionViewDidLoad() {
   this.getPosition();
 }
 
+public goToPageEstacionamientos(){
+  this.navCtrl.push('EstacionamientosPage');
+}
+
 getPosition(): any {
   this.geolocation.getCurrentPosition()
     .then(response => {
@@ -56,7 +60,8 @@ loadMap(position: Geoposition) {
       position: positionPark,
       map: this.map,
       title: 'Hello World!',
-      icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/39818-200.png'
+      icon: '../../assets/img/car-wash.png'
+      //icon: 'https://mt.googleapis.com/vt/icon/name=icons/onion/27-cabs.png'
     });
     mapEle.classList.add('show-map');
   });

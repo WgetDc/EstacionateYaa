@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Geolocation } from '@ionic-native/geolocation';
 
+import { ServicioEstacionamientos } from '../servicios/servicio.estacionamientos';
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
@@ -26,6 +28,7 @@ import { HomePage } from '../pages/home/home';
     StatusBar,
     SplashScreen,
     Geolocation,
+    ServicioEstacionamientos,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
