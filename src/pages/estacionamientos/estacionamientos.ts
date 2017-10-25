@@ -16,11 +16,12 @@ import { ServicioEstacionamientos } from '../../servicios/servicio.estacionamien
 })
 export class EstacionamientosPage {
   estacionamientos = [];
+  esta = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public servicioEstacionamientos: ServicioEstacionamientos) {
-      this.estacionamientos = servicioEstacionamientos.getEstacionamientos();
-  }
+      this.estacionamientos = this.servicioEstacionamientos.getEstacionamientos();
+      this.esta = this.servicioEstacionamientos.getEstacionamientos();  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EstacionamientosPage');
