@@ -6,17 +6,54 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>detalle</ion-title>
+  <ion-navbar color="dark">
+    <ion-title>{{estacionamiento.nombre}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-DETALEEE!!!
-<p>{{id}}</p>
-<p>{{estacionamiento.nombre}}</p>
-<p>{{estacionamiento.tarifa}}</p>
-<p>{{estacionamiento.dias}}</p>
+<ion-content padding >
+
+  <ion-card>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{estacionamiento.img}}">
+      </ion-avatar>
+      <h2>{{estacionamiento.nombre}}</h2>
+      <p>${{estacionamiento.tarifa}} cada {{estacionamiento.tiempo}}</p>
+    </ion-item>
+
+    <img  src="{{estacionamiento.img}}" *ngIf="show == true">
+
+    <ion-card-content>
+      <ion-fab  right top>
+        <button (click)="mostrar()" color="danger" ion-fab mini><ion-icon  name="images"></ion-icon></button>
+      </ion-fab>
+      <p>Habierto de: {{estacionamiento.dias}} en horario de {{estacionamiento.horario}}</p>
+      <p>Tamaño estacionamientos: {{estacionamiento.size}} m²</p>
+      <p>Camara de seguridad: {{estacionamiento.camara}}</p>
+      <p>Cupos totales: {{estacionamiento.cupos}}</p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+        <ion-icon name="heart"></ion-icon>
+        <div>12 Likes</div>
+      </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>4 Comentarios</div>
+      </button>
+      </ion-col>
+    </ion-row>   
+  </ion-card>
+  <button (click)="presentToast()" ion-button full>Reservar hora</button>
+  
 </ion-content>
+
+

@@ -27,8 +27,12 @@ export class EstacionamientosPage {
     console.log('ionViewDidLoad EstacionamientosPage');
   }
 
-  public goToPageDetalle(id){
-    this.navCtrl.push('DetallePage', {id: id});
+  public goToPageDetalle(identificador){
+    this.navCtrl.push('DetallePage', { id: identificador});
+  }
+
+  public goToPageCrear(){
+    this.navCtrl.push('CrearPage');
   }
 
 }

@@ -18,4 +18,8 @@ export class ServicioEstacionamientos{
             return e.id == id
         })[0] || { id: null, nombre: null, cupos: null, size: null, tarifa: null, tiempo: null, camara: null, dias: null, horario: null, img: null };
     }
+
+    public addEstacionamiento(estacionamiento){
+        this.estacionamientos.push(estacionamiento);
+    }
 }
