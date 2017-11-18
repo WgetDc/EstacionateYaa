@@ -22,4 +22,14 @@ export class ServicioEstacionamientos{
     public addEstacionamiento(estacionamiento){
         this.estacionamientos.push(estacionamiento);
     }
+
+    public deleteEstacionamiento(estacionamiento){
+        let index = this.estacionamientos.indexOf(estacionamiento);
+        this.estacionamientos.splice(index,1);
+    }
+
+    public editEstacionamiento(estacionamiento){
+        let index = this.estacionamientos.indexOf(estacionamiento);
+        this.estacionamientos[index] = estacionamiento;
+    }
 }

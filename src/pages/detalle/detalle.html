@@ -15,7 +15,15 @@
 
 <ion-content padding >
 
-  <ion-card>
+  <ion-fab bottom left>
+    <button color="dark" ion-fab mini><ion-icon name="construct"></ion-icon></button>
+    <ion-fab-list side="right">
+      <button (click)="eliminarEstacionamiento()" color="danger" ion-fab><ion-icon name="trash"></ion-icon></button>
+      <button (click)="enableEditar()" color="secondary" ion-fab><ion-icon name="clipboard"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-card *ngIf="editar == false">
 
     <ion-item>
       <ion-avatar item-start>
@@ -52,8 +60,75 @@
       </ion-col>
     </ion-row>   
   </ion-card>
-  <button (click)="presentToast()" ion-button full>Reservar hora</button>
+  <button *ngIf="editar == false" (click)="presentToast()" ion-button full>Reservar hora</button>
   
+  <ion-list *ngIf="editar == true">
+
+    <ion-item>
+      <ion-label floating>Nombre estacionamiento</ion-label>
+      <ion-input [(ngModel)]="estacionamiento.nombre" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Cupos</ion-label>
+      <ion-input [(ngModel)]="estacionamiento.cupos" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Tamaño de los estacionamientos</ion-label>
+      <ion-input [(ngModel)]="estacionamiento.size" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Tarifa</ion-label>
+      <ion-input [(ngModel)]="estacionamiento.tarifa" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Tiempo</ion-label>
+      <ion-select [(ngModel)]="estacionamiento.tiempo">
+        <ion-option value="Cada media hora">Cada media hora</ion-option>
+        <ion-option value="Cada una hora">Cada una hora</ion-option>
+        <ion-option value="Indefinido">Indefinido</ion-option>
+        <ion-option value="Por minuto">Por minuto</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Camara de vigilancia</ion-label>
+      <ion-select [(ngModel)]="estacionamiento.camara">
+        <ion-option value="Si">Sí</ion-option>
+        <ion-option value="No">No</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Días</ion-label>
+      <ion-select [(ngModel)]="estacionamiento.dias">
+        <ion-option value="Lunes a viernes">Lunes a viernes</ion-option>
+        <ion-option value="Lunes a sábado">Lunes a sábado</ion-option>
+        <ion-option value="Lunes a domingo">Lunes a domingo</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Horario</ion-label>
+      <ion-select [(ngModel)]="estacionamiento.horario">
+        <ion-option value="08:00 a 16:00">08:00 a 16:00</ion-option>
+        <ion-option value="08:00 a 22:00">08:00 a 22:00</ion-option>
+        <ion-option value="24/7">24/7</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Imagen</ion-label>
+      <ion-input [(ngModel)]="estacionamiento.imagen" type="text"></ion-input>
+    </ion-item>
+
+    <button (click)="editarEstacionamiento()" ion-button full block>Guardar</button>
+
+  </ion-list>
+
 </ion-content>
 
 

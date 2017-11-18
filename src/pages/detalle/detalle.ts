@@ -16,6 +16,7 @@ import { ToastController } from 'ionic-angular';
 })
 export class DetallePage {
   id = null;
+  editar = false;
   show = false;
   estacionamiento = { id: null, nombre: null, cupos: null, size: null, tarifa: null, tiempo: null, camara: null, dias: null, horario: null, img: null }
   constructor(public servicioEstacionamientos: ServicioEstacionamientos, public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
@@ -42,6 +43,20 @@ export class DetallePage {
       duration: 3000
     });
     toast.present();
+  }
+
+  public eliminarEstacionamiento(){
+    this.servicioEstacionamientos.deleteEstacionamiento(this.estacionamiento);
+    this.navCtrl.pop();
+  }
+
+  public editarEstacionamiento(){
+    this.servicioEstacionamientos.editEstacionamiento(this.estacionamiento);
+    this.editar = false;
+  }
+
+  public enableEditar(){
+    this.editar = true;
   }
 
 }
